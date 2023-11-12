@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ExpTechTW API Docs</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .dropdown {
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: #263238;
+            color: #FFFFFF;
+            border: 2px solid #1E88E5;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .dropdown:hover {
+            border-color: #1565C0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .dropdown:focus {
+            box-shadow: 0 0 8px rgba(30, 136, 229, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ExpTechTW API Docs</h1>
+    <select class="dropdown" onchange="location = this.value;">
+        <option value="">選擇 API 版本</option>
+        <option value="/v1">API v1</option>
+        <option value="/v2">API v2</option>
+    </select>
+</body>
+
+</html>

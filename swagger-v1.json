@@ -1,0 +1,31 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ExpTechTW",
+        "version": "1.0.0",
+        "description": "一個專為 ExpTech 各種服務提供支援的多功能 API 接口"
+    },
+    "servers": [
+        {
+            "url": "http://data.exptech.com.tw/api/v1"
+        }
+    ],
+    "paths": {
+        "/eq": {
+            "get": {
+                "summary": "地震報告",
+                "responses": {
+                    "200": {
+                        "description": "Successful response for v1",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
