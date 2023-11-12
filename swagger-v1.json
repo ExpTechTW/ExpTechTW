@@ -11,15 +11,120 @@
         }
     ],
     "paths": {
-        "/eq": {
+        "/eq/report": {
             "get": {
                 "summary": "地震報告",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "限制返回結果數量的參數 默認1 最大50",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Successful response for v1",
+                        "description": "請求成功",
                         "content": {
                             "application/json": {
                                 "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "identifier": {
+                                                "type": "string",
+                                                "example": "CWA-EQ112000-2023-1108-053414"
+                                            },
+                                            "earthquakeNo": {
+                                                "type": "integer",
+                                                "example": 112000
+                                            },
+                                            "epicenterLon": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 121.85
+                                            },
+                                            "epicenterLat": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 24.28
+                                            },
+                                            "location": {
+                                                "type": "string",
+                                                "example": "花蓮縣政府東北方  39.6  公里 (位於臺灣東部海域)"
+                                            },
+                                            "depth": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 11.5
+                                            },
+                                            "magnitudeValue": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 3.9
+                                            },
+                                            "originTime": {
+                                                "type": "string",
+                                                "example": "2023-11-08 05:34:14"
+                                            },
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "areaName": {
+                                                            "type": "string",
+                                                            "example": "宜蘭縣"
+                                                        },
+                                                        "areaIntensity": {
+                                                            "type": "integer",
+                                                            "example": 2
+                                                        },
+                                                        "eqStation": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "stationName": {
+                                                                        "type": "string",
+                                                                        "example": "澳花"
+                                                                    },
+                                                                    "stationLon": {
+                                                                        "type": "number",
+                                                                        "format": "float",
+                                                                        "example": 121.74
+                                                                    },
+                                                                    "stationLat": {
+                                                                        "type": "number",
+                                                                        "format": "float",
+                                                                        "example": 24.33
+                                                                    },
+                                                                    "distance": {
+                                                                        "type": "number",
+                                                                        "format": "float",
+                                                                        "example": 12.37
+                                                                    },
+                                                                    "stationIntensity": {
+                                                                        "type": "integer",
+                                                                        "example": 2
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "trem": {
+                                                "type": "integer",
+                                                "example": 1000
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
