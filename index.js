@@ -18,8 +18,8 @@ function setupSwaggerUI(swaggerDocument) {
 	};
 }
 
-app.use("/v1", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv1));
-app.use("/v2", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv2));
+app.use("/docs/v1", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv1));
+app.use("/docs/v2", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv2));
 
 app.get("/", (req, res) => res.send(htmlContent));
 
