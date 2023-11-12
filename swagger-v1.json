@@ -13,6 +13,7 @@
     "paths": {
         "/eq/report": {
             "get": {
+                "tags": ["eq"],
                 "summary": "地震報告",
                 "parameters": [
                     {

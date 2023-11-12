@@ -12,14 +12,23 @@ const port = 1000;
 const htmlPath = path.join(__dirname, "index.html");
 const htmlContent = fs.readFileSync(htmlPath, "utf8");
 
-function setupSwaggerUI(swaggerDocument) {
+function setupSwaggerUI(swaggerDocument, Options) {
 	return (req, res, next) => {
-		swaggerUi.setup(swaggerDocument)(req, res, next);
+		swaggerUi.setup(swaggerDocument, Options)(req, res, next);
 	};
 }
 
-app.use("/docs/v1", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv1));
-app.use("/docs/v2", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv2));
+const Options = {
+	customCss: `
+	.topbar-wrapper a {
+		visibility: hidden;
+	}`,
+	customSiteTitle: "API 文件 | ExpTechTW",
+	customfavIcon: "https://api.exptech.com.tw/file/exptech/exptech.6e605140.png"
+};
+
+app.use("/docs/v1", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv1, Options));
+app.use("/docs/v2", swaggerUi.serve, setupSwaggerUI(swaggerDocumentv2, Options));
 
 app.get("/", (req, res) => res.send(htmlContent));
 
